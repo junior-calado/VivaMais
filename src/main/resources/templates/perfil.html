@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil da Pessoa</title>
+
+    <!-- Adicionando Bootstrap (CSS) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+
+<div class="card">
+    <h2 class="card-header">Perfil da Pessoa</h2>
+    <div class="card-body">
+
+        <div th:if="${pessoa != null}">
+            <dl class="row">
+                <dt class="col-sm-3">Nome:</dt>
+                <dd class="col-sm-9" th:text="${pessoa.nome}"></dd>
+
+                <dt class="col-sm-3">Documento:</dt>
+                <dd class="col-sm-9" th:text="${pessoa.documento}"></dd>
+
+                <dt class="col-sm-3">Telefone:</dt>
+                <dd class="col-sm-9" th:text="${pessoa.telefone}"></dd>
+
+                <dt class="col-sm-3">Endereço:</dt>
+                <dd class="col-sm-9" th:text="${pessoa.endereco}"></dd>
+                <!-- Adicione outros campos conforme necessário -->
+            </dl>
+        </div>
+
+        <div th:unless="${pessoa != null}">
+            <p class="alert alert-danger">A pessoa não foi encontrada.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- Adicionando Bootstrap (Scripts) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
